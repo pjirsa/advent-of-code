@@ -16,6 +16,9 @@ namespace advent_of_code
           
             var product = FindPairs(results);
             Console.WriteLine(product);
+
+            var trioproduct = FindTrio(results, 2020);
+            Console.WriteLine(trioproduct);
         }
 
         private static int[] ReadInputFile(string filename)
@@ -43,6 +46,27 @@ namespace advent_of_code
                 }
             }
             
+            return 0;
+        }
+
+        private static int FindTrio(int[] values, int searchValue)
+        {
+            for (int i = 0; i < values.Length; i++)
+            {
+                for (int j = 1; j < values.Length; j++)
+                {
+                    for (int k = 2; k < values.Length; k++)
+                    {
+                        int sum = values[i] + values[j] + values[k];
+                        if (sum == searchValue)
+                        {
+                            Console.WriteLine($"{values[i]} + {values[j]} + {values[k]} = {sum}");
+                            return values[i] * values[j] * values[k];
+                        }
+                    }
+                }
+            }
+
             return 0;
         }
     }
