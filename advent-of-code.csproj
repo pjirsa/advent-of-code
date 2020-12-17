@@ -6,4 +6,9 @@
     <RootNamespace>advent_of_code</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+  <Content Include="input1.txt">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </Content>
+</ItemGroup>
 </Project>
