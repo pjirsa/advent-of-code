@@ -42,8 +42,14 @@ namespace advent_of_code
 
         public bool IsValid()
         {
-            int count = Value.Count(c => c == Character);
-            return count >= Minimum && count <= Maximum;
+            try
+            {
+                return (Value[Minimum-1] == Character && Value[Maximum-1] != Character) || (Value[Minimum-1] != Character && Value[Maximum-1] == Character);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public override string ToString()
@@ -51,4 +57,6 @@ namespace advent_of_code
             return $"Min: {Minimum}, Max: {Maximum}, Character: {Character}, Password: {Value}";
         }
     }
+
+    
 }
